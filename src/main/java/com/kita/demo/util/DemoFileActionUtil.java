@@ -29,7 +29,6 @@ public class DemoFileActionUtil {
 
     /**
      * ファイル読み込み処理
-     * ファイルの読み込み、mapのListに格納する処理。
      * 
      * @param filePath      （ファイルパス）
      * @param columnMapping （カラムマップ）
@@ -77,7 +76,7 @@ public class DemoFileActionUtil {
                         Field field = clazz.getDeclaredField(dbColumn);
                         field.setAccessible(true);
                         Class<?> fieldType = field.getType();
-
+                        
                         if (value == null || value.trim().isEmpty()) {
                             dataMap.put(dbColumn, null);
                         } else if (fieldType.equals(Integer.class) || fieldType.equals(int.class)) {
@@ -89,7 +88,7 @@ public class DemoFileActionUtil {
                         } else {
                             dataMap.put(dbColumn, value);
                         }
-
+                        
                     } else {
                         throw new IOException("カラム名:" + fileColumns[i] + "が存在していません。");
                     }
