@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="lazyLoadingEnabled" value="true" />
+        <setting name="useColumnLabel" value="true" />
+        <setting name="mapUnderscoreToCamelCase" value="false" />
+    </settings>
+
+    <!-- 接続設定 -->
+    <environments default="POSTGRES">
+        <environment id="POSTGRES">
+            <transactionManager type="JDBC" />
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="org.postgresql.Driver" />
+                <property name="url" value="jdbc:postgresql://127.0.0.1:5433/postgres" />
+                <property name="username" value="postgres" />
+                <property name="password" value="postgres" />
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="com/**/.xml" />
+    </mappers>
+</configuration>
